@@ -1,0 +1,40 @@
+.iframetag{
+    height: 100%;
+    width: 100%;
+}
+.worldtext{
+    font-size: 20px;
+}
+.infosect{
+    padding-left: 200px;
+}
+.infosect1{
+    padding-right: 100PX;
+}
+@media(max-width:650px){
+    .iframetag{
+        height: 200%;
+        width: 100%;
+    }
+    .iframeinfo{
+        padding-top: 170px;
+    }
+    .imgcrl{
+        height: 300px;
+        width: 100%;
+    }
+    .worldtext{
+        font-size: 15px;
+    }
+    .worldimg{
+        height: 300px;
+        width: 100%;
+    }
+    .infosect{
+        padding-left: 50px;
+    }
+    .infosect1{
+        padding-right: 0PX;
+        padding-left: 50px;
+    }
+}
