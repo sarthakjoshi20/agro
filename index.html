@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro - Modern Agricultural Solutions</title>
+    
+    <!-- Optimized Bootstrap loading -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-color: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --accent-color: #ff9800;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #fff;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--primary-color) !important;
+            padding: 2px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--light-text);
+        }
+        
+        /* Hero Carousel */
+        .carousel-item {
+            height: 70vh;
+            min-height: 500px;
+        }
+        
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .carousel-caption {
+            bottom: 30%;
+            text-align: left;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .carousel-caption h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .carousel-caption p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 5%;
+        }
+        
+        .carousel-indicators li {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .iframeinfo {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .worldimg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .stats-section {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 80px 0;
+        }
+        
+        .stats-section .stat-item {
+            padding: 20px;
+        }
+        
+        .stats-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .stats-section p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .blog-card {
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card .card-body {
+            padding: 25px;
+        }
+        
+        .blog-card .card-footer {
+            background: transparent;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 20px 25px;
+        }
+        
+        .contact-form {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 40px;
+        }
+        
+        .btn-primary {
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary {
+            font-weight: 600;
+        }
+        
+        footer {
+            background-color: #222;
+            color: var(--light-text);
+            padding: 40px 0 0;
+        }
+        
+        footer h2, footer h3 {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        footer ul {
+            padding-left: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--primary-light);
+        }
+        
+        .social-icons i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover i {
+            color: var(--primary-light);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 12px;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .worldimg {
+            max-width: 60%;
+            height: 320px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .carousel-item {
+                height: 60vh;
+            }
+            
+            .carousel-caption {
+                bottom: 20%;
+                padding: 20px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-weight: 700;
+                font-size: 1.5rem;
+                margin-left: 12px;
+            }
+            .carousel-item {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .carousel-caption {
+                bottom: 10%;
+                padding: 12px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.5rem;
+            }
+            
+            .iframeinfo {
+                padding: 20px 15px;
+            }
+            
+            .stats-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            .worldimg {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .carousel-item {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .carousel-caption {
+                bottom: 16%;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.2rem;
+            }
+            
+            .stats-section {
+                padding: 50px 0;
+            }
+        }
+
+        .navbar-toggler {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler:focus {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-seedling mr-2"></i>AGRO
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="border: none;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gallary.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" class="d-block w-100" alt="Modern farming landscape">
+            <div class="carousel-caption">
+                <h2>Modern Agricultural Solutions</h2>
+                <p>Innovative farming techniques for sustainable agriculture and food security.</p>
+                <a href="#about" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/031/696/054/large_2x/sprawling-agricultural-farm-featuring-fields-of-crops-ai-generated-photo.jpg" class="d-block w-100" alt="Agricultural technology">
+            <div class="carousel-caption">
+                <h2>Advanced Farming Technology</h2>
+                <p>Utilizing cutting-edge technology to maximize yield and efficiency.</p>
+                <a href="#technology" class="btn btn-primary">Our Technology</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" class="d-block w-100" alt="Organic farming">
+            <div class="carousel-caption">
+                <h2>Sustainable Organic Farming</h2>
+                <p>Promoting environmentally friendly practices for healthier produce.</p>
+                <a href="#sustainability" class="btn btn-primary">Our Approach</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container-fluid mt-5 mb-5" id="about">
+        <div class="row">
+            <div class="col-md-6 p-0 order-md-2">
+                <div class="embed-responsive embed-responsive-16by9 h-100">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KJzmM9SL0mA?si=LSgVSPeGOCmFHZK_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-6 iframeinfo order-md-1">
+                <h3 class="section-title text-center">About Us</h3>
+                <p class="text-justify">Agro is a leading agricultural business dedicated to sustainable farming practices and innovative agricultural solutions. With decades of experience in the industry, we combine traditional farming knowledge with modern technology to produce high-quality, nutritious food while preserving our environment.</p>
+                <p class="text-justify">Our farms span across multiple regions, allowing us to cultivate a diverse range of crops and raise healthy livestock. We're committed to implementing eco-friendly practices, reducing our carbon footprint, and contributing to food security for future generations.</p>
+                <div class="mt-4">
+                    <button class="btn btn-success btn-lg">Learn More About Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Statistics Section -->
+    <div class="container pt-5 text-center bg-light">
+        <h3 class="section-title mb-5">Our Unique Approach</h3>
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-md-3 mb-4">
+                <i class="fas fa-leaf fa-3x text-success mb-3"></i>
+                <h5>100% Organic</h5>
+                <p>All our crops are grown using chemical-free methods.</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <i class="fas fa-seedling fa-3x text-success mb-3"></i>
+                <h5>Sustainable Farming</h5>
+                <p>We preserve soil fertility for future generations.</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <i class="fas fa-tractor fa-3x text-success mb-3"></i>
+                <h5>Modern Techniques</h5>
+                <p>Smart irrigation & efficient farming tools.</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <i class="fas fa-hand-holding-heart fa-3x text-success mb-3"></i>
+                <h5>Farmer Support</h5>
+                <p>We empower local farmers with knowledge and resources.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Global Presence Section -->
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="section-title">Global Presence</h3>
+                <p class="lead">With operations spanning across continents, we bring sustainable agriculture to communities worldwide.</p>
+                <img src="img.png" alt="World map showing our locations" class="worldimg">
+            </div>
+        </div>
+    </div> 
+
+    <!-- Gallery Section -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section-title">Our Gallery</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.gQGQgkAV9J8VtI4Zl3Jh8wHaE6&pid=Api&P=0&h=220" class="card-img-top" alt="Farm landscape">
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.A0DgayGHXXFTa-ImoWmTAQHaE7&pid=Api&P=0&h=220" class="card-img-top" alt="Greenhouse">
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.vsj-TJCIhyxTUIVnCZMYigHaE8&pid=Api&P=0&h=220" class="card-img-top" alt="Farm equipment">
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.uP0-5sVxhm1opaAfpbRulgHaE8&pid=Api&P=0&h=220" class="card-img-top" alt="Farm produce">
+                    </div>
+                </div>
+
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://img.freepik.com/premium-photo/organic-farm-hd-8k-wallpaper-stock-photographic_1051157-3221.jpg" class="card-img-top" alt="Farm landscape">
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://www.shutterstock.com/image-photo/corn-cobs-plantation-field-background-600nw-2313869449.jpg" class="card-img-top" alt="Greenhouse">
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.Iqml6PbaRoOd_MCTvYONZAHaEb&pid=Api&P=0&h=220" class="card-img-top" alt="Farm equipment">
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="card">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.fo7RC0yyG35k8_dODtkHRQHaEc&pid=Api&P=0&h=220" class="card-img-top" alt="Farm produce">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <a href="Gallary.html" class="btn btn-success">View Full Gallery</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <h2 class="section-title">Latest Blog Posts</h2>
+                    <p class="text-center lead">Stay updated with the latest trends, tips, and news in modern agriculture.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card blog-card h-100">
+                        <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="w-100" style="height: 200px;" alt="Tips for ripening fruit">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">DIET / TIPS & GUIDES</span>
+                            <h4 class="card-title">Tips for Ripening Your Fruit Naturally</h4>
+                            <p class="card-text">Learn effective, natural methods to ripen your fruits without chemicals, preserving their nutritional value and flavor.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-success">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card blog-card h-100">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="w-100" style="height: 200px;" alt="Health benefits of raw food">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">ORGANIC FOOD / TIPS & GUIDES</span>
+                            <h4 class="card-title">Health Benefits of a Raw Food Diet</h4>
+                            <p class="card-text">Discover how incorporating more raw foods into your diet can boost your health, energy levels, and overall wellbeing.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-success">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card blog-card h-100">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="w-100" style="height: 200px;" alt="Superfoods you should be eating">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">DIET / ORGANIC FOOD</span>
+                            <h4 class="card-title">Superfoods You Should Be Eating</h4>
+                            <p class="card-text">Explore our list of nutrient-dense superfoods that can enhance your diet and provide numerous health benefits.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-success">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners Section -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4">
+                <img src="https://sustainablecheshireuk.files.wordpress.com/2022/08/organicproduce-e1428702141300.webp?w=1000" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h3>Why Choose Our Farm?</h3>
+                <p class="lead">We blend traditional farming with modern technology to provide the best quality produce.</p>
+                <ul style="line-height:1.9;">
+                    <li>100% chemical-free farming</li>
+                    <li>Experienced & passionate farmers</li>
+                    <li>Eco-friendly and sustainable land care</li>
+                    <li>Fresh produce directly from farm to home</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact Form -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="text-center mb-5">Have questions about our services or want to partner with us? Get in touch!</p>
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email Address:</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="mobile">Phone Number:</label>
+                                    <input type="tel" class="form-control" id="mobile">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="subject">Subject:</label>
+                                    <input type="text" class="form-control" id="subject">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message">Your Message:</label>
+                                    <textarea class="form-control" id="message" rows="4" style="resize: none;"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-4 mb-4">
+                  <h3>AGRO</h3>
+                  <p class="mt-3">Leading the way in sustainable agriculture and innovative farming solutions for a better tomorrow.</p>
+                  <ul class="list-unstyled mt-4">
+                      <li><a href="About.html">About Us</a></li>
+                      <li><a href="Gallary.html">Our Gallery</a></li>
+                      <li><a href="Blog.html">Blog & News</a></li>
+                      <li><a href="Contact.html">Contact Us</a></li>
+                  </ul>
+              </div>
+  
+              <div class="col-md-4 mb-4">
+                  <h3>CONTACT US</h3>
+                  <ul class="list-unstyled mt-3">
+                      <li><i class="fas fa-map-marker-alt mr-2"></i> 303–318, Agro Business Park, Sadanand Estates, Plot No.5, S.No.105, Dehu Road, Dehu, Pune–411 045</li>
+                      <li class="mt-2"><i class="fas fa-phone mr-2"></i> <a href="tel:+912029996412">+91 (020) 29996412/13</a></li>
+                      <li class="mt-2"><i class="fas fa-envelope mr-2"></i> <a href="mailto:info@sjcpl.in">info@sjcpl.in</a></li>
+                  </ul>
+                  <div class="social-icons mt-4">
+                      <a href="#"><i class="fab fa-linkedin"></i></a>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+  
+              <div class="col-md-4 mb-4">
+                <h3>OUR LOCATION</h3>
+                <div class="embed-responsive embed-responsive-16by9 mt-3">
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6845.2814732733395!2d73.767407!3d18.567675!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf79c2468cbd%3A0xea6b75c9fc133a64!2sS%20J%20Contracts%20Pvt%20Ltd!5e1!3m2!1sen!2sus!4v1729942202806!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Our location on Google Maps"></iframe>
+                </div>
+            </div>
+          </div>  
+          
+          <div class="row">
+              <div class="col-md-12 copyright">
+                  <p>&copy; 2023 Agro Business. All Rights Reserved.</p>
+              </div>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>

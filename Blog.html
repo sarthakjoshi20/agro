@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Agro Agricultural Business</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --accent-color: #ff9800;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #fff;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--primary-color) !important;
+            padding: 2px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--light-text);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .blog-section {
+            padding: 40px 0 0;
+        }
+        
+        .blog-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card-body {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .blog-category.diet {
+            background-color: var(--accent-color);
+        }
+        
+        .blog-category.organic {
+            background-color: var(--primary-light);
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .blog-meta i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+        
+        .blog-meta span {
+            margin-right: 15px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .sidebar {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .categories-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .categories-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .categories-list a {
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .categories-list a:hover {
+            color: var(--primary-color);
+        }
+        
+        .categories-list span {
+            background: var(--primary-light);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .recent-post {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .recent-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-post img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        
+        .recent-post-content h5 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .recent-post-content span {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        footer {
+            background-color: #222;
+            color: var(--light-text);
+            padding: 40px 0 0;
+        }
+        
+        footer h2, footer h3 {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        footer ul {
+            padding-left: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--primary-light);
+        }
+        
+        .social-icons i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover i {
+            color: var(--primary-light);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 12px;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-weight: 700;
+                font-size: 1.5rem;
+                margin-left: 12px;
+            }
+        }
+        .navbar-toggler {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler:focus {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-seedling mr-2"></i>AGRO
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gallary.html">Gallery</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+        <div class="container my-5 pt-4">
+            <div class="row">
+                <div class="col-md-12 pt-2">
+                    <h2 class="section-title text-center">Latest Articles</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <!-- Blog Post 1 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Tips for ripening fruit">
+                                <div class="blog-card-body">
+                                    <span class="blog-category diet">DIET / TIPS & GUIDES</span>
+                                    <h5>Tips for Ripening Your Fruit Naturally</h5>
+                                    <p>Learn effective, natural methods to ripen your fruits without chemicals, preserving their nutritional value and flavor.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar"></i> Oct 15, 2023</span>
+                                        <span><i class="far fa-comment"></i> 12 Comments</span>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 2 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Health benefits of raw food">
+                                <div class="blog-card-body">
+                                    <span class="blog-category organic">ORGANIC FOOD / TIPS & GUIDES</span>
+                                    <h5>Health Benefits of a Raw Food Diet</h5>
+                                    <p>Discover how incorporating more raw foods into your diet can boost your health, energy levels, and overall wellbeing.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar"></i> Oct 10, 2023</span>
+                                        <span><i class="far fa-comment"></i> 8 Comments</span>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 4 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://wallpaperaccess.com/full/1164298.jpg" alt="Sustainable farming practices">
+                                <div class="blog-card-body">
+                                    <span class="blog-category organic">SUSTAINABLE FARMING</span>
+                                    <h5>Implementing Sustainable Farming Practices</h5>
+                                    <p>Learn how modern farms are adopting eco-friendly methods to reduce environmental impact while maintaining productivity.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar"></i> Sep 28, 2023</span>
+                                        <span><i class="far fa-comment"></i> 22 Comments</span>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 5 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://wallpaperaccess.com/full/803482.jpg" alt="Agricultural technology">
+                                <div class="blog-card-body">
+                                    <span class="blog-category">AGRICULTURAL TECHNOLOGY</span>
+                                    <h5>The Future of Farming: Smart Agriculture</h5>
+                                    <p>Discover how IoT, drones, and AI are revolutionizing farming practices and increasing efficiency in modern agriculture.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar"></i> Sep 20, 2023</span>
+                                        <span><i class="far fa-comment"></i> 18 Comments</span>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 6 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Organic certification">
+                                <div class="blog-card-body">
+                                    <span class="blog-category organic">ORGANIC CERTIFICATION</span>
+                                    <h5>Understanding Organic Certification</h5>
+                                    <p>A comprehensive guide to what it takes for a farm to become certified organic and the benefits of this certification.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar"></i> Sep 15, 2023</span>
+                                        <span><i class="far fa-comment"></i> 10 Comments</span>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 3 -->
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Superfoods you should be eating">
+                                <div class="blog-card-body">
+                                    <span class="blog-category">DIET / ORGANIC FOOD</span>
+                                    <h5>Superfoods You Should Be Eating</h5>
+                                    <p>Explore our list of nutrient-dense superfoods that can enhance your diet and provide numerous health benefits.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar"></i> Oct 5, 2023</span>
+                                        <span><i class="far fa-comment"></i> 15 Comments</span>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="categories-list">
+                            <li><a href="#">Organic Farming <span>12</span></a></li>
+                            <li><a href="#">Sustainable Agriculture <span>8</span></a></li>
+                            <li><a href="#">Diet & Nutrition <span>15</span></a></li>
+                            <li><a href="#">Farm Technology <span>7</span></a></li>
+                            <li><a href="#">Crop Management <span>9</span></a></li>
+                            <li><a href="#">Livestock Care <span>6</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="recent-post">
+                            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Recent post">
+                            <div class="recent-post-content">
+                                <h5>Tips for Ripening Your Fruit Naturally</h5>
+                                <span><i class="far fa-calendar"></i> Oct 15, 2023</span>
+                            </div>
+                        </div>
+                        <div class="recent-post">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Recent post">
+                            <div class="recent-post-content">
+                                <h5>Health Benefits of a Raw Food Diet</h5>
+                                <span><i class="far fa-calendar"></i> Oct 10, 2023</span>
+                            </div>
+                        </div>
+                        <div class="recent-post">
+                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Recent post">
+                            <div class="recent-post-content">
+                                <h5>Superfoods You Should Be Eating</h5>
+                                <span><i class="far fa-calendar"></i> Oct 5, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">Subscribe</h3>
+                        <p>Stay updated with our latest articles and farming tips.</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-4 mb-4">
+                  <h3>AGRO</h3>
+                  <p class="mt-3">Leading the way in sustainable agriculture and innovative farming solutions for a better tomorrow.</p>
+                  <ul class="list-unstyled mt-4">
+                      <li><a href="About.html">About Us</a></li>
+                      <li><a href="Gallary.html">Our Gallery</a></li>
+                      <li><a href="Blog.html">Blog & News</a></li>
+                      <li><a href="Contact.html">Contact Us</a></li>
+                  </ul>
+              </div>
+  
+              <div class="col-md-4 mb-4">
+                  <h3>CONTACT US</h3>
+                  <ul class="list-unstyled mt-3">
+                      <li><i class="fas fa-map-marker-alt mr-2"></i> 303–318, Agro Business Park, Sadanand Estates, Plot No.5, S.No.105, Dehu Road, Dehu, Pune–411 045</li>
+                      <li class="mt-2"><i class="fas fa-phone mr-2"></i> <a href="tel:+912029996412">+91 (020) 29996412/13</a></li>
+                      <li class="mt-2"><i class="fas fa-envelope mr-2"></i> <a href="mailto:info@sjcpl.in">info@sjcpl.in</a></li>
+                  </ul>
+                  <div class="social-icons mt-4">
+                      <a href="#"><i class="fab fa-linkedin"></i></a>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+  
+              <div class="col-md-4 mb-4">
+                <h3>OUR LOCATION</h3>
+                <div class="embed-responsive embed-responsive-16by9 mt-3">
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6845.2814732733395!2d73.767407!3d18.567675!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf79c2468cbd%3A0xea6b75c9fc133a64!2sS%20J%20Contracts%20Pvt%20Ltd!5e1!3m2!1sen!2sus!4v1729942202806!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Our location on Google Maps"></iframe>
+                </div>
+            </div>
+          </div>  
+          
+          <div class="row">
+              <div class="col-md-12 copyright">
+                  <p>&copy; 2023 Agro Business. All Rights Reserved.</p>
+              </div>
+          </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

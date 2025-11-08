@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro - Modern Agricultural Solutions</title>
+    
+    <!-- Optimized Bootstrap loading -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-color: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --accent-color: #ff9800;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #fff;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--primary-color) !important;
+            padding: 2px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--light-text);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: #222;
+            color: var(--light-text);
+            padding: 40px 0 0;
+        }
+        
+        footer h2, footer h3 {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        footer ul {
+            padding-left: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--primary-light);
+        }
+        
+        .social-icons i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover i {
+            color: var(--primary-light);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 12px;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-weight: 700;
+                font-size: 1.5rem;
+                margin-left: 12px;
+            }
+        }
+        .navbar-toggler {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler:focus {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-seedling mr-2"></i>AGRO
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gallary.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid my-5 pt-4">
+        <div class="row">
+            <div class="col-md-12 pt-2">
+                <h2 class="section-title text-center">Gallary</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.A0DgayGHXXFTa-ImoWmTAQHaE7&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.gQGQgkAV9J8VtI4Zl3Jh8wHaE6&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.vsj-TJCIhyxTUIVnCZMYigHaE8&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.DdKgvAnK7MDcqrI94Bj13AHaEG&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.uP0-5sVxhm1opaAfpbRulgHaE8&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse4.mm.bing.net/th?id=OIP.WbLLO9x_8mtx0S9GrNPtQQHaEk&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.HDZrdZbhMpRRGk3Dt_nydgHaEu&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse4.mm.bing.net/th?id=OIP.DCALuAaV4OBrMD14Huwc9gHaEH&pid=Api&P=0&h=220 "
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.ErEeEQBaxwuNkqL0j3z2gAHaE3&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse3.mm.bing.net/th?id=OIP.T331ZRV8uVYFT4Eiy_omRQHaEx&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.bCSt36hwJd6fjgoM-A_3EgHaEp&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.nguZfOC5-PnZ-U3ac7iUuQHaE8&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.hid3_pgpqoVDJi5kcyrmvAHaEj&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.c8mCtCMICm9GJifVQLfn7QHaEK&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.DoG5sO66G5rVoEBTR-92ogHaE9&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://wallpaperaccess.com/full/1164298.jpg"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.5SpPl07flfI2SlDkL7kSAAAAAA&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse4.mm.bing.net/th?id=OIP.GI1yy8OYKHahUMjZB5Nv_QHaFb&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse2.mm.bing.net/th?id=OIP.dJnb_MCaVk3uGXeHSk7XagHaEK&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://img.freepik.com/premium-photo/organic-farm-hd-8k-wallpaper-stock-photographic_1051157-3221.jpg"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://www.shutterstock.com/image-photo/corn-cobs-plantation-field-background-600nw-2313869449.jpg"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse3.mm.bing.net/th?id=OIP.Iqml6PbaRoOd_MCTvYONZAHaEb&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.fo7RC0yyG35k8_dODtkHRQHaEc&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header p-0">
+                         <img src="https://tse1.mm.bing.net/th?id=OIP.5Og2jp0IzmWd8VdbeHrxJQAAAA&pid=Api&P=0&h=220"
+                          class="w-100 img-thumbnail" style="height: 200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-4 mb-4">
+                  <h3>AGRO</h3>
+                  <p class="mt-3">Leading the way in sustainable agriculture and innovative farming solutions for a better tomorrow.</p>
+                  <ul class="list-unstyled mt-4">
+                      <li><a href="About.html">About Us</a></li>
+                      <li><a href="Gallary.html">Our Gallery</a></li>
+                      <li><a href="Blog.html">Blog & News</a></li>
+                      <li><a href="Contact.html">Contact Us</a></li>
+                  </ul>
+              </div>
+  
+              <div class="col-md-4 mb-4">
+                  <h3>CONTACT US</h3>
+                  <ul class="list-unstyled mt-3">
+                      <li><i class="fas fa-map-marker-alt mr-2"></i> 303–318, Agro Business Park, Sadanand Estates, Plot No.5, S.No.105, Dehu Road, Dehu, Pune–411 045</li>
+                      <li class="mt-2"><i class="fas fa-phone mr-2"></i> <a href="tel:+912029996412">+91 (020) 29996412/13</a></li>
+                      <li class="mt-2"><i class="fas fa-envelope mr-2"></i> <a href="mailto:info@sjcpl.in">info@sjcpl.in</a></li>
+                  </ul>
+                  <div class="social-icons mt-4">
+                      <a href="#"><i class="fab fa-linkedin"></i></a>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+  
+              <div class="col-md-4 mb-4">
+                <h3>OUR LOCATION</h3>
+                <div class="embed-responsive embed-responsive-16by9 mt-3">
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6845.2814732733395!2d73.767407!3d18.567675!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf79c2468cbd%3A0xea6b75c9fc133a64!2sS%20J%20Contracts%20Pvt%20Ltd!5e1!3m2!1sen!2sus!4v1729942202806!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Our location on Google Maps"></iframe>
+                </div>
+            </div>
+          </div>  
+          
+          <div class="row">
+              <div class="col-md-12 copyright">
+                  <p>&copy; 2023 Agro Business. All Rights Reserved.</p>
+              </div>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>
