@@ -55,16 +55,19 @@
         .navbar-dark .navbar-nav .nav-link {
             color: rgba(255,255,255,0.9);
             font-weight: 500;
-            padding: 8px 15px;
+            padding: 4px 16px;
             margin: 0 5px;
             border-radius: 4px;
             transition: all 0.3s ease;
         }
         
-        .navbar-dark .navbar-nav .nav-link:hover,
-        .navbar-dark .navbar-nav .nav-link.active {
+        .navbar-dark .navbar-nav .nav-link:hover{
             background-color: rgba(255,255,255,0.1);
-            color: var(--light-text);
+            color: white;
+        }
+        .navbar-dark .navbar-nav .nav-item.active .nav-link{
+            color: var(--accent-color);
+            font-weight: 700;
         }
         
         .section-title {
